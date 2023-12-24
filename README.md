@@ -12,7 +12,7 @@ SwitchKey allows you to use shortcut keys to quickly switch applications.
   - Easily switch between files A.png and B.png using ⌥A and ⌥B.
 
 ### Screenshots:
-![Main Window](./img/mainWindow.png)<style> img[src*='/img/mainWindow.png'] { width: 600px; height: 800px; } </style>
+![Main Window](./img/mainWindow.png)<style> img[src*='/img/mainWindow.png'] { width: 350px; height: 600px; } </style>
 *Main Window View*
 
 ![Main Window - Large](./img/mainWindowLarge.png)
