@@ -15,7 +15,7 @@ SwitchKey allows you to use shortcut keys to quickly switch applications.
 ![Main Window](./img/mainWindow.png)<style> img[src*='/img/mainWindow.png'] { width: 350px; height: 500px; } </style>
 *Main Window View*
 
-![Main Window - Large](./img/mainWindowLarge.png)
+![Main Window - Large](./img/mainWindowLarge.png)<style> img[src*='/img/mainWindow.png'] { width: 700px; height: 500px; } </style>
 *Extended Main Window View*
 
 ## License
