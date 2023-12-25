@@ -13,10 +13,10 @@ SwitchKey allows you to use shortcut keys to quickly switch applications.
 
 ### Screenshots:
 ![Main Window](./img/mainWindow.png)<style> img[src*='/img/mainWindow.png'] { width: 350px; height: 500px; } </style>
-*Main Window View*
+<div align="center">*Main Window View*</div>
 
-![Main Window - Large](./img/mainWindowLarge.png)<style> img[src*='/img/mainWindow.png'] { width: 700px; height: 500px; } </style>
-*Extended Main Window View*
+![Main Window - Large](./img/mainWindowLarge.png)<style> img[src*='/img/mainWindowLarge.png'] { width: 700px; height: 500px; } </style>
+<div align="center">*Extended Main Window View*</div>
 
 ## License
 ### The MIT License (MIT)
