@@ -1,9 +1,9 @@
-# SwitchKey
+# Switch Shortcut Key
 
-SwitchKey allows you to use shortcut keys to quickly switch applications.
+Switch Shortcut Key allows you to use shortcut keys to quickly switch apps and files.
 
 ### Features:
-- **Multiple App Support:** Can handle multiple applications with the same name, provided they are in different paths.
+- **Multiple App Support:** Can handle multiple apps with the same name, provided they are in different paths.
 - **File Shortcuts:** 
   - Set up shortcuts for frequently used files like A.png and B.png. 
   - Assign ⌥A and ⌥B as shortcuts.
