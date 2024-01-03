@@ -1,6 +1,6 @@
-# Switch Shortcut Key
+# LaunchSwitch
 
-Switch Shortcut Key allows you to use shortcut keys to quickly switch apps and files.
+LaunchSwitch allows you to use shortcut keys to quickly switch apps and files.
 
 ### Features:
 - **Multiple App Support:** Can handle multiple apps with the same name, provided they are in different paths.
