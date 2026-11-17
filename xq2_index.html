@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>象一棋 · 随时随地，来一局中国象棋</title>
+<meta name="description" content="象一棋是一款中国象棋人机对弈 App，十八档电脑等级，积分对局步步升级，支持悔棋、提示与分析。适用于 iPhone、iPad 和 Mac。">
+<meta property="og:title" content="象一棋 · 中国象棋人机对弈">
+<meta property="og:description" content="十八档电脑等级，积分对局步步升级，悔棋、提示、分析一应俱全。">
+<meta property="og:image" content="img_xq2/logo.jpg">
+<meta name="theme-color" content="#2B1611">
+<link rel="icon" href="img_xq2/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img_xq2/apple-touch-icon.png">
+<style>
+:root{
+  --ground:#2B1611;
+  --ground-2:#3A1E16;
+  --panel:#24120D;
+  --ink:#F3E3C3;
+  --soft:#D9BC8C;
+  --muted:#B79C78;
+  --accent:#C0392F;
+  --accent-hi:#D9473B;
+  --line:#5A3A26;
+  --serif:"Songti SC","STSong","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--soft)}
+a:hover{color:var(--ink)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(43,22,17,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:.06em}
+.brand img{width:36px;height:36px;border-radius:9px}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:15px}
+.nav ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{overflow:hidden;padding:88px 0 96px;background:radial-gradient(ellipse at 70% 40%,#4A2619 0%,var(--ground) 62%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-logo{width:108px;height:108px;border-radius:24px;box-shadow:0 18px 50px rgba(0,0,0,.5);margin-bottom:28px}
+h1{font-family:var(--serif);font-weight:900;font-size:76px;line-height:1.1;letter-spacing:.08em;margin:0}
+.rule{width:72px;height:4px;background:var(--accent);margin:24px 0}
+.lead{font-family:var(--serif);font-size:26px;color:var(--soft);margin:0 0 12px}
+.sub{color:var(--muted);font-size:17px;margin:0 0 36px;max-width:460px}
+.cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;border-radius:14px;text-decoration:none;font-weight:600;font-size:17px}
+.btn-primary{background:var(--accent);color:#FFF6E8;border:1px solid #E06A5E}
+.btn-primary:hover{background:var(--accent-hi);color:#fff}
+.btn-ghost{color:var(--soft);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--soft)}
+.btn svg{width:22px;height:22px}
+.platforms{margin-top:22px;color:var(--muted);font-size:14px}
+
+/* phone frame */
+.phone{background:#0D0706;border:3px solid #7A5638;border-radius:46px;padding:9px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.phone img{border-radius:37px;width:100%;height:auto}
+.hero-phones{position:relative;height:600px;max-width:520px;margin:0 auto;width:100%}
+.hero-phones .phone{position:absolute;width:46%}
+.hero-phones .p1{left:2%;top:56px;transform:rotate(-6deg)}
+.hero-phones .p2{right:2%;top:0;transform:rotate(6deg)}
+
+/* sections */
+section{padding:96px 0}
+.alt{background:var(--ground-2)}
+.eyebrow{font-size:14px;letter-spacing:.2em;color:var(--accent-hi);margin:0 0 12px}
+h2{font-family:var(--serif);font-weight:900;font-size:44px;line-height:1.25;letter-spacing:.04em;margin:0 0 16px}
+.section-head{text-align:center;max-width:640px;margin:0 auto 64px}
+.section-head p{color:var(--muted);font-size:17px;margin:0}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:32px}
+.num{font-family:var(--serif);font-size:15px;letter-spacing:.12em;color:var(--accent-hi)}
+.tile h3{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:.03em;margin:10px 0 10px}
+.tile p{color:var(--muted);font-size:16px;margin:0}
+.levels{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.levels span{border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:14px;color:var(--soft)}
+
+/* devices */
+.device-list{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:840px;margin:0 auto}
+.device-list div{text-align:center;color:var(--muted);font-size:15px;border:1px solid var(--line);border-radius:20px;padding:32px 16px}
+.device-list strong{display:block;color:var(--ink);font-size:20px;font-family:var(--serif);margin-bottom:4px}
+.device-list svg{width:44px;height:44px;stroke:var(--soft);margin:0 auto 14px;display:block}
+
+/* privacy + support */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:36px}
+.card h3{font-family:var(--serif);font-size:26px;margin:0 0 12px}
+.card p{color:var(--muted);margin:0 0 16px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer nav{display:flex;gap:24px}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+@media (max-width:1000px){
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero{padding:56px 0 64px}
+  .hero .wrap,.cards{grid-template-columns:1fr}
+  .hero-copy{text-align:center}
+  .hero-logo,.rule{margin-left:auto;margin-right:auto}
+  .sub{margin-left:auto;margin-right:auto}
+  .cta{justify-content:center}
+  h1{font-size:56px}
+  .hero-phones{height:auto;aspect-ratio:520/600;max-width:420px}
+  section{padding:72px 0}
+  h2{font-size:34px}
+  .grid{grid-template-columns:1fr}
+  .device-list{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img_xq2/logo.jpg" alt="">象一棋</a>
+    <nav aria-label="页面导航">
+      <ul>
+        <li><a href="#features">功能</a></li>
+        <li><a href="#devices">设备</a></li>
+        <li><a href="#support">支持</a></li>
+        <li><a href="xq2_privacy.html">隐私政策</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <img class="hero-logo" src="img_xq2/logo.jpg" alt="象一棋 App 图标">
+        <h1>象一棋</h1>
+        <div class="rule"></div>
+        <p class="lead">随时随地，来一局中国象棋</p>
+        <p class="sub">十八档电脑等级陪你下，从初学到专业都有旗鼓相当的对手。积分对局步步升级，悔棋、提示、分析一应俱全。</p>
+        <div class="cta">
+          <!-- 上架后把 idXXXXXXXXXX 换成 App 的真实 ID -->
+          <a class="btn btn-primary" href="https://apps.apple.com/app/idXXXXXXXXXX">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            在 App Store 下载
+          </a>
+          <a class="btn btn-ghost" href="#features">了解功能</a>
+        </div>
+        <p class="platforms">支持 iPhone · iPad · Mac</p>
+      </div>
+      <div class="hero-phones" aria-hidden="true">
+        <div class="phone p1"><img src="img_xq2/start.jpg" alt=""></div>
+        <div class="phone p2"><img src="img_xq2/play.jpg" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="features" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">功能</p>
+        <h2>一方木盘，楚河汉界</h2>
+        <p>不用注册，打开就下。所有对局都在你的设备上完成。</p>
+      </div>
+      <div class="grid">
+        <div class="tile">
+          <span class="num">01</span>
+          <h3>十八档电脑等级</h3>
+          <p>从学棋到专业，总有旗鼓相当的对手。</p>
+          <div class="levels" aria-label="等级划分"><span>学 1–3</span><span>业 1–9</span><span>专 1–3</span></div>
+        </div>
+        <div class="tile">
+          <span class="num">02</span>
+          <h3>积分对局，步步升级</h3>
+          <p>自动匹配水平相近的电脑，赢棋加分，攒够积分就升一级，记录你的成长。</p>
+        </div>
+        <div class="tile">
+          <span class="num">03</span>
+          <h3>练习对局</h3>
+          <p>自选电脑等级，不计分，想挑战高手还是轻松热身，由你决定。</p>
+        </div>
+        <div class="tile">
+          <span class="num">04</span>
+          <h3>悔棋</h3>
+          <p>一步失误不必推倒重来，退回去换一手再试。</p>
+        </div>
+        <div class="tile">
+          <span class="num">05</span>
+          <h3>提示</h3>
+          <p>卡住时看看电脑的建议，想不通也有人指点。</p>
+        </div>
+        <div class="tile">
+          <span class="num">06</span>
+          <h3>显示分析</h3>
+          <p>理解每一步棋的得失，下完一盘就长进一点。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="devices">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">设备</p>
+        <h2>手机、平板、电脑都能下</h2>
+        <p>一个 App 覆盖你的苹果设备。大屏上棋盘更大，字大子清，落子分明。</p>
+      </div>
+      <div class="device-list">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg><strong>iPhone</strong>随手来一局</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg><strong>iPad</strong>大棋盘看得清</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M1.5 19.5h21"/></svg><strong>Mac</strong>工作间隙下一盘</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="support" class="alt">
+    <div class="wrap">
+      <div class="cards">
+        <div class="card">
+          <h3>隐私</h3>
+          <p>象一棋不收集、不上传任何个人信息，没有广告，也不接入第三方统计。等级、积分和对局只保存在你的设备上。</p>
+          <a href="xq2_privacy.html">阅读完整隐私政策</a>
+        </div>
+        <div class="card">
+          <h3>支持与反馈</h3>
+          <p>遇到问题或有功能建议，欢迎发邮件给我们，我们会尽快回复。</p>
+          <!-- 把下面的邮箱换成你的联系邮箱 -->
+          <a href="mailto:your-email@example.com">SwitchKey666@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 余钢涛</span>
+    <nav aria-label="页脚链接">
+      <a href="xq2_privacy.html">隐私政策</a>
+      <a href="mailto:your-email@example.com">联系我们</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
